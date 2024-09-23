@@ -1,0 +1,29 @@
+{
+  "name": "trifir3-github-io",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/node": "^8.3.3",
+    "@astrojs/rss": "^4.0.7",
+    "@astrojs/tailwind": "^5.1.0",
+    "alfaaz": "^1.1.0",
+    "astro": "^4.15.4",
+    "tailwindcss": "^3.4.7",
+    "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "@astrojs/ts-plugin": "^1.9.1",
+    "@tailwindcss/typography": "^0.5.15",
+    "@types/node": "^22.5.2",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1"
+  }
+}
