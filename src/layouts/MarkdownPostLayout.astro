@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import Footer from "@/components/Footer/Footer.astro";
 import Ztag from "@/components/Blog/Ztag.astro";
 const { frontmatter } = Astro.props;
 ---
@@ -30,6 +31,7 @@ const { frontmatter } = Astro.props;
       <slot />
     </article>
   </div>
+  <Footer />
 </BaseLayout>
 
 <script is:inline>
