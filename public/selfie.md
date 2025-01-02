@@ -2,8 +2,8 @@
 author: trifir3
 ---
 
-Hi there,
+Hello there,
 
-I’m trifir3, a front-end web developer.
+I’m trifir3, a web developer.
 
 - Github: [@trifir3](https://github.com/trifir3)
