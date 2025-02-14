@@ -1,32 +1,37 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
-import Footer from "@/components/Footer/Footer.astro";
-import Ztag from "@/components/Blog/Ztag.astro";
-const { frontmatter } = Astro.props;
+import BaseLayout from "./BaseLayout.astro"
+import Footer from "@/components/Footer/Footer.astro"
+const { frontmatter } = Astro.props
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <div class="text-stone-800 dark:text-stone-200">
+  <div class="flex flex-col items-center text-stone-800 dark:text-stone-200">
     <div class="py-2">
-      <div class="font-black text-4xl mb-6">
+      <div class="mb-6 text-3xl font-black">
         {frontmatter.title}
       </div>
       <div class="mb-4 font-thin text-stone-600 dark:text-stone-400">
         Publish on {(frontmatter.pubDate ?? "").split("T")[0]}
       </div>
-      <div class="flex gap-2 mb-4">
-        {frontmatter.tags.map((tag: string) => <Ztag tag={tag} />)}
+      <div class="mb-4 flex gap-2">
+        {
+          frontmatter.tags.map((tag: string) => (
+            <span class="rounded-xl bg-white/65 px-2 invert transition-colors duration-300 ease-in-out hover:text-black dark:bg-black/60 dark:hover:text-white">
+              #{tag}
+            </span>
+          ))
+        }
       </div>
       <div class="text-lg italic text-stone-600 dark:text-stone-400">
         {frontmatter.description}
       </div>
       <div
-        class="h-4 border-b-4 my-4 border-dashed border-stone-500 dark:border-stone-400"
+        class="my-4 h-4 border-b-4 border-dashed border-stone-500 dark:border-stone-400"
       >
       </div>
     </div>
     <article
-      class="prose dark:prose-invert prose-stone md:prose-lg prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl max-w-[95ch]"
+      class="prose prose-stone max-w-[80ch] text-pretty text-base md:prose-lg dark:prose-invert prose-img:mx-auto"
     >
       <slot />
     </article>
@@ -45,7 +50,7 @@ const { frontmatter } = Astro.props;
     svg: {
       fontCache: "global",
     },
-  };
+  }
 </script>
 <script
   is:inline

@@ -1,33 +1,33 @@
 ---
-import { formatDate, readingTime } from "@/lib/utils";
+import { formatDate, readingTime } from "@/lib/utils"
 
 interface Props {
-  title: string;
-  url: string;
-  desc: string;
-  date: string;
-  tags: string[];
-  path: string;
+  title: string
+  url: string
+  desc: string
+  date: string
+  tags: string[]
+  path: string
 }
 
-const { title, url, desc, date, tags, path } = Astro.props;
+const { title, url, desc, date, tags, path } = Astro.props
 ---
 
 <a
   href={url}
-  class="relative group flex flex-nowrap py-3 px-4 pr-10 rounded-lg border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-all duration-300 ease-in-out "
+  class="group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pr-10 transition-all duration-300 ease-in-out hover:bg-black/5 hover:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white"
 >
-  <div class="flex flex-col flex-1">
-    <div class="font-semibold text-ellipsis">
+  <div class="flex flex-1 flex-col">
+    <div class="text-ellipsis font-semibold">
       {title}
     </div>
     <div class="text-sm">
       {readingTime(path) + " :: " + formatDate(new Date(date))}
     </div>
-    <div class="text-sm flex truncate gap-2 my-1">
+    <div class="my-1 flex gap-2 truncate text-sm">
       {
         tags.map((tag) => (
-          <div class="rounded-lg invert bg-white/65 dark:bg-black/60 px-1">
+          <div class="rounded-lg bg-white/65 px-1 invert dark:bg-black/60">
             #{tag}
           </div>
         ))
@@ -40,18 +40,18 @@ const { title, url, desc, date, tags, path } = Astro.props;
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    class="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current"
+    class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"
   >
     <line
       x1="5"
       y1="12"
       x2="19"
       y2="12"
-      class="translate-x-3 group-hover:translate-x-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"
+      class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100"
     ></line>
     <polyline
       points="12 5 19 12 12 19"
-      class="-translate-x-1 group-hover:translate-x-0 transition-transform duration-300 ease-in-out"
+      class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0"
     ></polyline>
   </svg>
 </a>

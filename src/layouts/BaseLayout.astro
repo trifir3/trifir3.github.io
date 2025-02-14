@@ -1,16 +1,20 @@
 ---
-import "@/styles/global.css";
-import Header from "@/components/Header/Header.astro";
-import { urlFromBase } from "@lib/utils";
+import "@/styles/global.css"
+import Header from "@/components/Header/Header.astro"
+import { urlFromBase } from "@lib/utils"
 
-const { pageTitle } = Astro.props;
-const base = import.meta.env.BASE_URL;
+const { pageTitle } = Astro.props
+const base = import.meta.env.BASE_URL
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href={urlFromBase(base, "/favicon.svg")} />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={urlFromBase(base, "/favicon.svg")}
+    />
     <link
       rel="preload"
       href={urlFromBase(base, "/fonts/HackDejavu.woff2")}
@@ -37,42 +41,38 @@ const base = import.meta.env.BASE_URL;
     <title>{pageTitle}</title>
     <script is:inline>
       function init() {
-        preloadTheme();
+        preloadTheme()
 
-        const lightThemeButton = document.getElementById("light-theme-button");
+        const lightThemeButton = document.getElementById("light-theme-button")
         lightThemeButton?.addEventListener("click", () => {
-          localStorage.setItem("theme", "light");
-          toggleTheme(false);
-        });
+          localStorage.setItem("theme", "light")
+          toggleTheme(false)
+        })
 
-        const darkThemeButton = document.getElementById("dark-theme-button");
+        const darkThemeButton = document.getElementById("dark-theme-button")
         darkThemeButton?.addEventListener("click", () => {
-          localStorage.setItem("theme", "dark");
-          toggleTheme(true);
-        });
+          localStorage.setItem("theme", "dark")
+          toggleTheme(true)
+        })
 
-        const systemThemeButton = document.getElementById(
-          "system-theme-button",
-        );
+        const systemThemeButton = document.getElementById("system-theme-button")
 
         systemThemeButton?.addEventListener("click", () => {
-          localStorage.setItem("theme", "system");
-          toggleTheme(
-            window.matchMedia("(prefers-color-scheme: dark)").matches,
-          );
-        });
+          localStorage.setItem("theme", "system")
+          toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches)
+        })
 
         window
           .matchMedia("(prefers-color-scheme: dark)")
           .addEventListener("change", (event) => {
             if (localStorage.theme === "system") {
-              toggleTheme(event.matches);
+              toggleTheme(event.matches)
             }
-          });
+          })
       }
 
       function toggleTheme(dark) {
-        const css = document.createElement("style");
+        const css = document.createElement("style")
 
         css.appendChild(
           document.createTextNode(
@@ -83,43 +83,41 @@ const base = import.meta.env.BASE_URL;
              -ms-transition: none !important;
              transition: none !important;
           }
-        `,
-          ),
-        );
+        `
+          )
+        )
 
-        document.head.appendChild(css);
+        document.head.appendChild(css)
 
         if (dark) {
-          document.documentElement.classList.add("dark");
+          document.documentElement.classList.add("dark")
         } else {
-          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.remove("dark")
         }
 
-        window.getComputedStyle(css).opacity;
-        document.head.removeChild(css);
+        window.getComputedStyle(css).opacity
+        document.head.removeChild(css)
       }
 
       function preloadTheme() {
-        const userTheme = localStorage.theme;
+        const userTheme = localStorage.theme
 
         if (userTheme === "light" || userTheme === "dark") {
-          toggleTheme(userTheme === "dark");
+          toggleTheme(userTheme === "dark")
         } else {
-          toggleTheme(
-            window.matchMedia("(prefers-color-scheme: dark)").matches,
-          );
+          toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches)
         }
       }
 
-      document.addEventListener("DOMContentLoaded", () => init());
-      document.addEventListener("astro:after-swap", () => init());
-      preloadTheme();
+      document.addEventListener("DOMContentLoaded", () => init())
+      document.addEventListener("astro:after-swap", () => init())
+      preloadTheme()
     </script>
   </head>
   <body>
-    <div class="flex flex-col mx-auto px-8 max-w-screen-lg w-full min-h-screen">
+    <div class="mx-auto flex min-h-screen w-full max-w-screen-lg flex-col px-8">
       <Header />
-      <div class="grow mt-32">
+      <div class="mt-32 grow">
         <slot />
       </div>
     </div>

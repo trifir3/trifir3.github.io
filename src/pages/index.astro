@@ -1,16 +1,15 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import { Content as Selfie } from "#/selfie.md";
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import { Content as Selfie } from "#/selfie.md"
 
-const pageTitle = "About";
+const pageTitle = "About"
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="flex flex-col gap-4">
-    <div
-    >
+    <div>
       <article
-        class="prose dark:prose-invert prose-stone md:prose-lg prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl"
+        class="prose prose-stone md:prose-lg dark:prose-invert prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl"
       >
         <Selfie />
       </article>
@@ -29,7 +28,7 @@ const pageTitle = "About";
     svg: {
       fontCache: "global",
     },
-  };
+  }
 </script>
 <script
   is:inline

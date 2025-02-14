@@ -4,12 +4,8 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@*": [
-        "./src/*"
-      ],
-      "#*": [
-        "./public/*"
-      ]
+      "@*": ["./src/*"],
+      "#*": ["./public/*"]
     }
   }
 }
