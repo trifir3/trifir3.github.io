@@ -8,8 +8,6 @@ archived: false
 description: ""
 ---
 
-# The CSS contain property and BFC
-
 ## The height animation problem
 
 The other day I saw this [post](https://www.granola.ai/blog/dont-animate-height) about how a simple CSS animation: `transition: height 300ms ease-in-out` leads to using 60% of the CPU of a M2 MacBook which is quite a performance problem. And it turns out that the `height` property is a **layout property**, which means that every change of it triggers a layout recalculation then re-painting and re-compositing, making it one of the most expensive CSS properties to animate. The solution from the original author is to switch from changing the `height` to use `transform`, a **composite property** that only triggers a cheap re-compositing.
