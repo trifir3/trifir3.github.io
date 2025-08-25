@@ -42,3 +42,7 @@ fetch("/download")
 ## ArrayBuffer
 
 The **`ArrayBuffer`** object is used to represent a generic raw binary data buffer, in other languages as a "byte array". `ArrayBuffer` cannot be directly manipulated, but you can use them to create one of the typed array objects or `DataView` objects, and use these to write the contents of the buffer.
+
+## References
+
+[MDN: responseType](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/responseType)
