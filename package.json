@@ -14,6 +14,7 @@
     "@astrojs/check": "^0.9.3",
     "@astrojs/node": "^8.3.3",
     "@astrojs/rss": "^4.0.7",
+    "@astrojs/sitemap": "^3.5.1",
     "@astrojs/tailwind": "^5.1.0",
     "alfaaz": "^1.1.0",
     "astro": "^4.15.4",
