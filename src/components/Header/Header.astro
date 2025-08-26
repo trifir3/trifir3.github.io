@@ -8,8 +8,8 @@ interface Nvi {
 
 const base = import.meta.env.BASE_URL
 const nvis: Nvi[] = [
-  { name: "about", url: urlFromBase(base, "/") },
-  { name: "blog", url: urlFromBase(base, "blog") },
+  { name: "about", url: urlFromBase(base, "about") },
+  { name: "blog", url: urlFromBase(base, "/") },
   { name: "rss", url: urlFromBase(base, "rss.xml") },
 ]
 ---

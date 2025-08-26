@@ -1,37 +1,33 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro"
-import { Content as Selfie } from "#/selfie.md"
+import Post from "@/components/Blog/Post.astro"
 
-const pageTitle = "About"
+const posts = await Astro.glob("@/pages/posts/*.md")
+const pageTitle = "trifir3's blog"
+
+const cmp = (a: any, b: any) => {
+  if (a.frontmatter.pubDate > b.frontmatter.pubDate) {
+    return -1
+  }
+  return 1
+}
+
+posts.sort(cmp)
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="flex flex-col gap-4">
-    <div>
-      <article
-        class="prose prose-stone md:prose-lg dark:prose-invert prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl"
-      >
-        <Selfie />
-      </article>
-    </div>
+    {
+      posts.map((post) => (
+        <Post
+          url={post.url as string}
+          path={post.file}
+          title={post.frontmatter.title}
+          desc={post.frontmatter.description}
+          date={post.frontmatter.pubDate}
+          tags={post.frontmatter.tags}
+        />
+      ))
+    }
   </div>
 </BaseLayout>
-
-<script is:inline>
-  MathJax = {
-    tex: {
-      inlineMath: [
-        ["$", "$"],
-        ["\\(", "\\)"],
-      ],
-    },
-    svg: {
-      fontCache: "global",
-    },
-  }
-</script>
-<script
-  is:inline
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
