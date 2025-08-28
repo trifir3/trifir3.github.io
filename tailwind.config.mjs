@@ -5,7 +5,7 @@ export default {
   darkMode: "selector", // Enable selector strategy for dark mode
   theme: {
     fontFamily: {
-      sans: ["Hack"],
+      sans: ["FiraCode"],
     },
     extend: {
       typography: (theme) => ({
