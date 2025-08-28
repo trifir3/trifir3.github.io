@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: The CSS contain property and BFC
 tags:
   - CSS

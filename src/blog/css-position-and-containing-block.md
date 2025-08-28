@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: CSS position property and the containing block
 tags:
   - CSS

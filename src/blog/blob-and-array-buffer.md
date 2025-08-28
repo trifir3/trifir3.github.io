@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: Difference between blob and arraybuffer in XMLHttpRequest property responseType
 tags:
   - JavaScript

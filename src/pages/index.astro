@@ -1,12 +1,14 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import Post from "@/components/Blog/Post.astro"
+import { getCollection } from "astro:content"
 
-const posts = await Astro.glob("@/pages/posts/*.md")
+const posts = await getCollection("blog")
+
 const pageTitle = "trifir3's blog"
 
 const cmp = (a: any, b: any) => {
-  if (a.frontmatter.pubDate > b.frontmatter.pubDate) {
+  if (a.data.pubDate > b.data.pubDate) {
     return -1
   }
   return 1
@@ -20,12 +22,10 @@ posts.sort(cmp)
     {
       posts.map((post) => (
         <Post
-          url={post.url as string}
-          path={post.file}
-          title={post.frontmatter.title}
-          desc={post.frontmatter.description}
-          date={post.frontmatter.pubDate}
-          tags={post.frontmatter.tags}
+          url={`/posts/${post.id}/`}
+          title={post.data.title}
+          date={post.data.pubDate}
+          tags={post.data.tags}
         />
       ))
     }

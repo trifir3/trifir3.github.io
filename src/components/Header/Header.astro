@@ -14,10 +14,10 @@ const nvis: Nvi[] = [
 ]
 ---
 
-<div
-  class="saturate-400 fixed left-0 right-0 top-0 z-50 bg-stone-100/75 py-5 backdrop-blur-sm dark:bg-stone-900/25"
->
-  <div class="mx-auto flex max-w-screen-md flex-wrap justify-between pl-6 pr-8">
+<div class="fixed top-0 right-0 left-0 z-50 py-5 backdrop-blur-xs">
+  <div
+    class="mx-auto flex max-w-(--breakpoint-md) flex-wrap justify-between pr-8 pl-6"
+  >
     <div class="flex flex-wrap items-center gap-1">
       <button
         id="light-theme-button"
@@ -34,7 +34,7 @@ const nvis: Nvi[] = [
           stroke-width="1.5"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="transition-colors duration-300 ease-in-out group-hover:stroke-black group-hover:dark:stroke-white"
+          class="transition-colors duration-300 ease-in-out group-hover:stroke-black dark:group-hover:stroke-white"
         >
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -62,7 +62,7 @@ const nvis: Nvi[] = [
           stroke-width="1.5"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="transition-colors duration-300 ease-in-out group-hover:stroke-black group-hover:dark:stroke-white"
+          class="transition-colors duration-300 ease-in-out group-hover:stroke-black dark:group-hover:stroke-white"
         >
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
@@ -82,7 +82,7 @@ const nvis: Nvi[] = [
           stroke-width="1.5"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="transition-colors duration-300 ease-in-out group-hover:stroke-black group-hover:dark:stroke-white"
+          class="transition-colors duration-300 ease-in-out group-hover:stroke-black dark:group-hover:stroke-white"
         >
           <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
           <line x1="8" y1="21" x2="16" y2="21"></line>
